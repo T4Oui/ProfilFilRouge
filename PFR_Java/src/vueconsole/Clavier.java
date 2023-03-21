@@ -12,5 +12,10 @@ public class Clavier {
     public static String entrerClavierString() {
         return scanner.next();
     }
+    
+    public static float entrerClavierFloat()
+    {
+    	return scanner.nextFloat();
+    }
 
 }
