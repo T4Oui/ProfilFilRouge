@@ -1,4 +1,5 @@
-package Indexation;
+package vueconsole;
+import controleur.ControlIndexer;
 
 public class BoundaryIndexer {
 	

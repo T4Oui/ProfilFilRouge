@@ -6,7 +6,7 @@ public class Resultat {
 	private List<String> listeResultat;
 	private TypeRecherche typeResultat;
 	
-	public Resultat(TypeRecherche type, List<String> listeResultat) {
+	public Resultat(TypeRecherche type, List<String> listeResultat)	{
 		this.typeResultat = type;
 		this.listeResultat=listeResultat;
 	}

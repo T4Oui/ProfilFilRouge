@@ -1,8 +1,8 @@
-package Indexation;
+package controleur;
 
 public class ControlIndexer {
 
-	public void indexerTout(String chemin) {
+	public void indexationTout(String chemin) {
 		indexationTexte(chemin);
 		indexationImage(chemin);
 		indexationSon(chemin);
