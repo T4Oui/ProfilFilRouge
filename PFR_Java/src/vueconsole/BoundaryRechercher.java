@@ -35,7 +35,7 @@ public class BoundaryRechercher {
 			boundaryRechercherTexte.rechercherTexte();
 			break;
 		case 2:
-			boundaryRechercherImage.rechercherImage();
+			boundaryRechercherImage.rechercheImage();
 			break;
 		case 3:
 			boundaryRechercherSon.rechercherSon();

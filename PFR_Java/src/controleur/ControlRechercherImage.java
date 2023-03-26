@@ -1,7 +1,6 @@
 package controleur;
 
 import java.util.List;
-
 import modele.FileHandler;
 import modele.Resultat;
 import modele.TypeRecherche;
@@ -19,7 +18,6 @@ public class ControlRechercherImage {
 		 List<String> res = FileHandler.readFileToList("/Users/valentin/Desktop/TestPFRJAVARecherche/lireRecherche.txt");
 		 this.resultat= new Resultat(TypeRecherche.IMAGE,res );
 		 return resultat;
-
 	}
 	
 	public Resultat rechercheImageCouleur(float pourcentageMini, String nom)

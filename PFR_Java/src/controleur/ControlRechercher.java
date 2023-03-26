@@ -1,14 +1,14 @@
 package controleur;
 
-import modele.TypeRecherche;
-import modele.LibraryTexteMoteur;
+import libraryJNA.LibraryTexteMoteur;
+import modele.TypeRechercheTexte;
 
 public class ControlRechercher {
 	LibraryTexteMoteur libraryTexteMoteur = LibraryTexteMoteur.INSTANCE;
 	
-	public String rechercheTexteMotClef(TypeRecherche typeRecherche, String motClef) {
+	public String rechercheTexteMotClef(TypeRechercheTexte typeRechercheTexte, String motClef) {
 		String fichier = null;
-		switch(typeRecherche) {				
+		switch(typeRechercheTexte) {				
 			case SIMPLE:
 				
 				//LibraryTexteMoteur libraryTexteMoteur = LibraryTexteMoteur.INSTANCE;

@@ -11,7 +11,7 @@ import modele.ModeRecherche;
 import modele.Parametre;
 import modele.ThreadIndexation;
 
-import modele.LibraryTexteMoteur;
+import libraryJNA.LibraryTexteMoteur;
 
 public class ControlRechercherTexte {
 	LibraryTexteMoteur libraryTexteMoteur = LibraryTexteMoteur.INSTANCE;
@@ -19,8 +19,8 @@ public class ControlRechercherTexte {
 	ModeRecherche modeRecherche;
 	ThreadIndexation threadIndexation = new ThreadIndexation(); 
 	
-	String fichierRechercheChemin = "/home/axel/eclipse-workspace/workspace/MoteurDeRecherche/src/rechercheTexteChemin.txt";
-	String fichierRechercheMC = "/home/axel/eclipse-workspace/workspace/MoteurDeRecherche/src/rechercheTexteMC.txt";
+	private String cheminResultatRech = "../data/resultat_recherche.txt";
+	//String fichierRechercheMC = "/home/axel/eclipse-workspace/workspace/MoteurDeRecherche/src/rechercheTexteMC.txt";
 	
 	public List<String> rechercherTexteMotClef(TypeRechercheTexte typeRechercheTexte, String motClef) {
 		List<String> resultats = new ArrayList<>();
@@ -29,8 +29,8 @@ public class ControlRechercherTexte {
 			case SIMPLE:
 								
 				libraryTexteMoteur.rech_MC(motClef);
-				resultats = Fichier.lire(fichierRechercheMC);
-				Fichier.supprimer(fichierRechercheMC);
+				resultats = Fichier.lire(cheminResultatRech);
+				Fichier.supprimer(cheminResultatRech);
 				break;
 			
 			case COMPLEXE:
@@ -61,9 +61,9 @@ public class ControlRechercherTexte {
 					System.out.println("Element : " + element);
 					
 					libraryTexteMoteur.rech_MC(element);
-					List<String> resultat = Fichier.lire(fichierRechercheMC);
+					List<String> resultat = Fichier.lire(cheminResultatRech);
 					listeResultats.add(resultat);
-					Fichier.supprimer(fichierRechercheMC);
+					Fichier.supprimer(cheminResultatRech);
 				
 				}
 				
@@ -142,8 +142,8 @@ public class ControlRechercherTexte {
 		
 		
 		libraryTexteMoteur.recherche_comparaison_texte(chemin, 35);
-		List<String> resultats = Fichier.lire(fichierRechercheChemin);	
-		Fichier.supprimer(fichierRechercheChemin);
+		List<String> resultats = Fichier.lire(cheminResultatRech);	
+		Fichier.supprimer(cheminResultatRech);
 		
 		
 		if(modeRecherche == ModeRecherche.OUVERT)	{

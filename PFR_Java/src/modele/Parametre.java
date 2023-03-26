@@ -15,7 +15,7 @@ public class Parametre {
 	 
 	 private  Parametre () {
 		 
-		 String filename = "/home/souma/PFR2/ProjetFilRouge/config.txt"; // nom du fichier de configuration 
+		 String filename = "/home/pfr/pfr_code/config.txt"; // nom du fichier de configuration 
 	        
 	        try {
 	            // Ouvre le fichier de configuration en lecture
@@ -61,7 +61,7 @@ public class Parametre {
     public void modifier  ( int nou , int nbrLig){
 	     
 	        String line ;
-	        String filename = "/home/souma/PFR2/ProjetFilRouge/config.txt"; // nom du fichier de configuration 
+	        String filename = "/home/pfr/pfr_code/config.txt"; // nom du fichier de configuration 
 	        
 	        try {
 	            // Ouvre le fichier de configuration en lecture
