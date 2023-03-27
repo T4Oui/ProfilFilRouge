@@ -48,4 +48,11 @@ MotTable add(MotTable p, int nb, char * MotTable, int fich);
 void aff(MotTable p);
 MotTable table(MotTable p, int ident, char *fichier)
 
+void recherche_comparaison_texte(char * pathFileRecherchee, int nbFichierTxt);
+void nbOccurCommun(int * tabOccurCommun, DESCRIPT_TXT descriptMotRech, int nbFichierTxt);
+int compareNbOccurComm(int * tabOccurCommun,int nbFichierTxt);
+
+void rech_MC(char * mot);
+void open_fich();
+
 #endif

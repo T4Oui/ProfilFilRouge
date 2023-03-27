@@ -14,7 +14,7 @@ public class TestJNA {
 		//libraryTexteMoteur.recherche_comparaison_texte("/home/pfr/DATA_PFR/03-Mimer_un_signal_nerveux_pour_utf8", 35);
 		
 		LibraryImageMoteur libraryImageMoteur = LibraryImageMoteur.INSTANCE;
-		libraryImageMoteur.indexation_image();
+		//libraryImageMoteur.indexation_image();
 		//String fich = "";
 		//libraryImageMoteur.recherchenoiretblanc(3002, 50, fich);
 		//System.out.println(fich);
