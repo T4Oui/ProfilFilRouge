@@ -63,7 +63,7 @@ public class ControlRechercherTexte {
 					libraryTexteMoteur.rech_MC(element);
 					List<String> resultat = Fichier.lire(cheminResultatRech);
 					listeResultats.add(resultat);
-					Fichier.supprimer(cheminResultatRech);
+					//Fichier.supprimer(cheminResultatRech);
 				
 				}
 				

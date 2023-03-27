@@ -1,4 +1,4 @@
-package testconsole;
+package test;
 
 import controleur.ControlRechercherTexte;
 import vueconsole.BoundaryRechercher;
