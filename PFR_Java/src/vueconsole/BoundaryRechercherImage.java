@@ -82,7 +82,8 @@ public class BoundaryRechercherImage {
 						System.out.println("Veuillez entrez 1, 2, 3, 4");
 					}
 				}
-				String fichierAOuvrir=controlRechercherImage.rechercheParCouleur(couleur);
+				System.out.println("dff");
+				Resultat fichierAOuvrir=controlRechercherImage.rechercheParCouleur(couleur);
 				System.out.println(fichierAOuvrir);
 				break;
 

@@ -3,7 +3,7 @@ package test;
 import controleur.ControlRechercherImage;
 import vueconsole.BoundaryRechercherImage;
 
-public class TestAffichage {
+public class Testtes {
 
 
 
