@@ -65,7 +65,7 @@ void open_fich(){
     fclose(fich);
 }
 
-
+/*
 int main(int argc,char *argv[]){
     //char chaine[100];
     printf("mot clef %s\n",argv[1]);
@@ -74,3 +74,4 @@ int main(int argc,char *argv[]){
     //system(chaine);
     return 0;
 }
+*/

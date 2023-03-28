@@ -12,7 +12,9 @@ public interface LibraryTexteMoteur extends Library{
 	LibraryTexteMoteur INSTANCE = (LibraryTexteMoteur) Native.loadLibrary("/home/pfr/pfr_code/texte/src/libTexte.so", LibraryTexteMoteur.class);
 
 	public void indexation_texte();
-	
+    public void recherche_comparaison_texte(String pathFileRecherchee, int nbFichierTxt);
+    public void rech_MC(String mot);
+	/*
 	public void recupListeFichierTxt();
 	public void redirCleanTok();
 	public DESCRIPT_TXT crea_descript_txt(String fileName,int ident, String cheminRepertoireTok);
@@ -55,11 +57,9 @@ public interface LibraryTexteMoteur extends Library{
     public void aff(MotTable p);
     public MotTable table(MotTable p, int ident, String fichier);
     
-    public void recherche_comparaison_texte(String pathFileRecherchee, int nbFichierTxt);
+    
     public void nbOccurCommun(int[] tabOccurCommun, DESCRIPT_TXT descriptMotRech, int nbFichierTxt);
     public int compareNbOccurComm(int[] tabOccurCommun, int nbFichierTxt);
-    
-    public void rech_MC(String mot);
     public void open_fich();
     
     public class MOT extends Structure {
@@ -175,6 +175,7 @@ public interface LibraryTexteMoteur extends Library{
             super();
         }
     }
+    */
 }
 
 

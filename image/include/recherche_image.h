@@ -33,7 +33,7 @@ void comparaison_couleur(TAB* descripteur, int identifiant, int nblignes);
 void comparaison_noirblanc(FILE* fichier);
 void malloc_structure(TAB* tab,int nblignes);
 void total(TAB* descripteur,int tabtaillemax);
-//void free_structure(TAB* tab,int nblignes);
+void free_structure(TAB* tab,int nblignes);
 void afficher_resultat_noiroublanc(STRUCTPOURC* tableau2, int nblignes);
 void afficher_resultat_couleur(STRUCTPOURC* tableau2, int nblignes);
 void afficher_pourcentage(STRUCTPOURC* tableau2, int nblignes, float pourcentagemini);

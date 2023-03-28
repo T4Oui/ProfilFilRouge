@@ -1,5 +1,6 @@
 
 2 NbOccurTXT
-3 TminTXT
-2 NbOccurIM
-3 NbitIM
+2 NbitIM
+1024 nbrEchantillon
+20 tailleINtervalle
+1 modeREcherche

@@ -11,8 +11,12 @@ import com.sun.jna.Memory;
 
 public interface LibraryImageMoteur extends Library{
 	LibraryImageMoteur INSTANCE = (LibraryImageMoteur) Native.loadLibrary("/home/pfr/pfr_code/image/src/libImage.so", LibraryImageMoteur.class);
-
-
+	
+    void indexation_image();
+  
+    void recherchenoiretblanc(int fichierrecherche, float pourcentagemini, String fichier);
+    void recherchecouleur(int fichierrecherche, float pourcentagemini, String fichier);
+/*
 	public static class TAB extends Structure {
         public int identifiant;
         public int nb_valeur;
@@ -60,7 +64,8 @@ public interface LibraryImageMoteur extends Library{
             return Arrays.asList("identifiant", "pourcentage", "fichier");
         }
     }
-    /*
+    
+    
     int quantification (int[] tab, int b, int n);
     Pointer pretraitement_image(String fichier, int[] ptrNBLIG, int[] ptrNBCOL, int[] ptrB, int n);
     Pointer pretraitement_recherche(String fichier, int[] ptrNBLIG, int[] ptrNBCOL, int[] ptrB, int n);
@@ -70,9 +75,9 @@ public interface LibraryImageMoteur extends Library{
     Pointer descripteur_image(Pointer tab, int n, int[] ptrNBCOL, int[] ptrNBLIG, int[] d);
     int configuration(Pointer fichier);
     Pointer indexation_recherche(String image);
-    */
-    void indexation_image();
-    /*
+    
+
+    
     float pourcentage(float partie, int total);
     int intersection(int[] tab1, int[] tab2, int taille);
     int configurationR(Pointer fichier);
@@ -95,10 +100,9 @@ public interface LibraryImageMoteur extends Library{
     void tri(STRUCTPOURC tableau2, int nblignes);
     void remplissagetabpourcent(STRUCTPOURC tableau2, TAB tableau1, int nblignes);
     int nbdedescripteurs(int noiroublanc);
-    */
-    void recherchenoiretblanc(int fichierrecherche, float pourcentagemini, String fichier);
-    void recherchecouleur(int fichierrecherche, float pourcentagemini, String fichier);
-    /*
+    
+
+    
     TAB init_tableau(TAB tableau1, int nbdescripteurs);
     void recupfichier_couleur(STRUCTPOURC tab, int nbdescripteurs);
     void recupfichier_noiroublanc(STRUCTPOURC tab, int nbdescripteurs);

@@ -233,7 +233,7 @@ void mise_a_jour_base_image (  FILE* LBI , FILE* BDI, const char* f ,int*  descr
 int configuration (FILE* fichier) 
 {
   int carac=0;
-  fseek(fichier,35,SEEK_SET); //permet de placer le curseur au niveau du caractère 35 (valeur de quantification) 
+  fseek(fichier,12,SEEK_SET); //permet de placer le curseur au niveau du caractère 35 (valeur de quantification) 
   fscanf(fichier,"%d",&carac); // lis le caractère au niveau du curseu
   return carac;
 }

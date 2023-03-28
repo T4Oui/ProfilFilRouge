@@ -100,7 +100,8 @@ void ajoutListeBaseTxt(char * pathFileSRC, int ident){
         else system(echoList);
     }
 }
-
+/*
 int main(int argc, char * argv[]){
     indexation_texte();
 }
+*/

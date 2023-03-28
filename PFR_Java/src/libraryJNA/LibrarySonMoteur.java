@@ -7,6 +7,7 @@ import com.sun.jna.Structure;
 public interface LibrarySonMoteur extends Library{
 	LibrarySonMoteur INSTANCE = (LibrarySonMoteur) Native.loadLibrary("/home/pfr/pfr_code/son/src/libSon.so", LibrarySonMoteur.class);
 	
+	/*
 	int n = 1024;
     int m = 20;
     int taille = 2;
@@ -26,6 +27,7 @@ public interface LibrarySonMoteur extends Library{
     }
 
     HISTOGRAMME fct_histogramme(double pas, double echant, HISTOGRAMME h);
-
+	*/
+	
     void indexation_son();
 }

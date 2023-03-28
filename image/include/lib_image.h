@@ -1,6 +1,17 @@
 #ifndef LIB_IMAGE_H
 #define LIB_IMAGE_H
 
+int quantification (int tab[]  , int b , int n );
+int ** pretraitement_image( const char* fechier , int * ptrNBLIG , int * ptrNBCOL, int * ptrB  , int n);
+int ** pretraitement_recherche ( const char* fichier , int * ptrNBLIG , int * ptrNBCOL, int * ptrB  , int n);
+int histogramme ( int ** tab , int nbr , int * ptrNBLIG , int * ptrNBCOL);
+void mise_a_jour_base_image (FILE* LBI ,FILE* BDI , const char* f ,int*  descripteur ,int n ,int* d );
+FILE* openFile( const char * nomFichier , const char * m );
+int* descripteur_image ( int ** tab , int n , int * ptrNBCOL , int * ptrNBLIG , int * d);
+int configuration (FILE* fichier);
+int* indexation_recherche (const char * image );
+void indexation_image () ;
+
 typedef struct TAB{
     int identifiant;
     int nb_valeur;
@@ -18,16 +29,6 @@ typedef struct STRUCTPOURC{
 }STRUCTPOURC;
 
 
-int quantification (int tab[]  , int b , int n );
-int ** pretraitement_image( const char* fechier , int * ptrNBLIG , int * ptrNBCOL, int * ptrB  , int n);
-int ** pretraitement_recherche ( const char* fichier , int * ptrNBLIG , int * ptrNBCOL, int * ptrB  , int n);
-int histogramme ( int ** tab , int nbr , int * ptrNBLIG , int * ptrNBCOL);
-void mise_a_jour_base_image (FILE* LBI ,FILE* BDI , const char* f ,int*  descripteur ,int n ,int* d );
-FILE* openFile( const char * nomFichier , const char * m );
-int* descripteur_image ( int ** tab , int n , int * ptrNBCOL , int * ptrNBLIG , int * d);
-int configuration (FILE* fichier);
-int* indexation_recherche (const char * image );
-void indexation_image () ;
 
 float pourcentage(float partie,int total);
 int intersection (int* tab1, int* tab2 ,int taille);
@@ -43,7 +44,7 @@ void comparaison_couleur(TAB* descripteur, int identifiant, int nblignes);
 void comparaison_noirblanc(FILE* fichier);
 void malloc_structure(TAB* tab,int nblignes);
 void total(TAB* descripteur,int tabtaillemax);
-//void free_structure(TAB* tab,int nblignes);
+void free_structure(TAB* tab,int nblignes);
 void afficher_resultat_noiroublanc(STRUCTPOURC* tableau2, int nblignes);
 void afficher_resultat_couleur(STRUCTPOURC* tableau2, int nblignes);
 void afficher_pourcentage(STRUCTPOURC* tableau2, int nblignes, float pourcentagemini);

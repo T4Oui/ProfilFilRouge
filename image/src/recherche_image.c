@@ -35,7 +35,7 @@ int tab_taille_couleur(int config,int noiroublanc)
  int configurationR  (FILE* fichier)
  {
   int carac=0;
-  fseek(fichier,35,SEEK_SET); //permet de placer le curseur au niveau du caractère 35 (valeur de quantification) 
+  fseek(fichier,12,SEEK_SET); //permet de placer le curseur au niveau du caractère 35 (valeur de quantification) 
   fscanf(fichier,"%d",&carac); // lis le caractère au niveau du curseur
   return carac;
   }
@@ -202,10 +202,14 @@ void comparaison_couleur(TAB* descripteur, int identifiant, int nbdescripteurs)
 
 void afficher_pourcentage(STRUCTPOURC* tableau2, int nbdescripteurs, float pourcentagemini)
     {
+        char resultat[256]={0};
+        system("echo '' > /home/pfr/pfr_code/data/resultat_recherche.txt");
         for(int t=nbdescripteurs-1;t>=1;t--) 
         {            if(tableau2[t].pourcentage>=pourcentagemini)
             {
-                printf("%s\t%f\n",tableau2[t].fichier,(tableau2[t]).pourcentage);
+                //printf("%s\t%f\n",tableau2[t].fichier,(tableau2[t]).pourcentage);
+                snprintf(resultat, sizeof(resultat),"echo '%f %s' >> /home/pfr/pfr_code/data/resultat_recherche.txt",(tableau2[t]).pourcentage,tableau2[t].fichier);
+                system(resultat);
             }
         
         }

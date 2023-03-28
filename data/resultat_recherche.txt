@@ -1,3 +1,13 @@
 
-/home/pfr/pfr/texte/fich_textes/28-Danse___Robyn_Orlin_et_utf8.xml 4
-/home/pfr/pfr/texte/fich_textes/22-Danse___quarante_jeunes_de_utf8.xml 2
+100,000000 56.txt
+95,652176 54.txt
+27,148155 63.txt
+27,112095 62.txt
+25,947866 57.txt
+20,703688 60.txt
+19,992788 61.txt
+18,457655 58.txt
+16,026169 59.txt
+5,120544 51.txt
+5,079332 53.txt
+4,852668 52.txt
