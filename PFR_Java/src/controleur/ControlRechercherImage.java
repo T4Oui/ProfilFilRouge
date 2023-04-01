@@ -1,6 +1,7 @@
 package controleur;
 
 import java.awt.desktop.OpenFilesHandler;
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,16 +9,16 @@ import java.util.List;
 
 import modele.Fichier;
 import modele.FileHandler;
+import modele.IdentiteFichier;
 import modele.JPGFileReader;
 import modele.Recherche;
 import modele.Resultat;
 import modele.TypeRecherche;
 import modele.TypeRechercheCouleur;
-
+import libraryJNA.*;
 public class ControlRechercherImage {
 	private String nom="test";
 	private Resultat resultat;
-	private Recherche recherche;
 	public ControlRechercherImage() {
 		// TODO Auto-generated constructor stub
 	}
@@ -25,17 +26,24 @@ public class ControlRechercherImage {
 	public Resultat rechercheImageNB(float pourcentageMini, String nom)
 	{
 		//nom=rechercheImageNB(pourcentage,nom) du C
+		 Recherche recherche = new Recherche(nom, pourcentageMini);
 		 List<String> res = FileHandler.readFileToList("/Users/valentin/Desktop/TestPFRJAVARecherche/lireRecherche.txt");
-		 this.resultat= new Resultat(TypeRecherche.IMAGE,res );
+		 this.resultat= new Resultat(TypeRechercheCouleur.NOIRETBLANC, res, recherche);
 		 return resultat;
 	}
 	
 	public Resultat rechercheImageCouleur(float pourcentageMini, String nom)
 	{
-		//nom=rechercheImageCouleur(pourcentage,nom) du C
 		this.nom="Couleur"+String.valueOf(pourcentageMini)+nom;
-
-		return null;
+		Recherche recherche = new Recherche(nom, pourcentageMini);
+		IdentiteFichier identite=IdentiteFichier.getInstance();
+		String identifiant=identite.getKeyByValue(nom);
+		LibraryImageMoteur jna=LibraryImageMoteur.INSTANCE;
+		int iden=Integer.parseInt(identifiant);
+	    jna.recherchecouleur(iden,pourcentageMini,"?");
+		List<String> res = FileHandler.readFileToList("/Users/valentin/Desktop/TestPFRJAVARecherche/lireRecherche.txt");
+		this.resultat= new Resultat(TypeRechercheCouleur.COULEUR, res, recherche);
+		return resultat;
 	}
 	
 	public Resultat rechercheParCouleur(int couleur)
@@ -44,27 +52,28 @@ public class ControlRechercherImage {
 		switch (couleur)
 		{
 			case 1 :
-				 this.recherche.setNom("Bleu");
+			     Recherche recherche= new Recherche("BLEU", 0);
 				 List<String> res = new ArrayList<>();
 				 res.add("34.jpg 9,000%");
 				 res.add("35.jpg 3,000%");
 				 res.add("28.jpg 1,000%");
-				 System.out.println("dfdf");
 			        try {
 			            BufferedImage image = JPGFileReader.readJPGFile("/Users/valentin/Documents/Capture d’écran 2023-03-18 à 09.18.28.png");
 			            // process the image here
 			        } catch (IOException e) {
 			            System.out.println("Error reading image file: " + e.getMessage());
 			        }
-			       return (new Resultat(TypeRechercheCouleur.RGB, res));
-				 
-				 
-
-
-
-		
+			       return (new Resultat(TypeRechercheCouleur.RGB, res, recherche));
+			case 2:
+				
+			       
+			default :
+				return null;
+			
+				
+				 		
 		}
-		return resultat;
+		
 			
 		
 	}

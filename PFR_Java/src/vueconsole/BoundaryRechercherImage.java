@@ -84,7 +84,7 @@ public class BoundaryRechercherImage {
 				}
 				System.out.println("dff");
 				Resultat fichierAOuvrir=controlRechercherImage.rechercheParCouleur(couleur);
-				System.out.println(fichierAOuvrir);
+				System.out.println(fichierAOuvrir.toString());
 				break;
 
 				

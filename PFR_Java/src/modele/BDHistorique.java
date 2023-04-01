@@ -34,7 +34,7 @@ public class BDHistorique {
 	
 	public static void main(String[] args) {
 		BDHistorique bdHistorique = BDHistorique.getInstance();
-		bdHistorique.ajouterHistorique(,);
+		//bdHistorique.ajouterHistorique(,);
 		System.out.println(bdHistorique.visualiserHistorique());
 	}
 }

@@ -1,6 +1,10 @@
 package test;
 
+import java.util.List;
+
 import controleur.ControlRechercherImage;
+import modele.FileHandler;
+import modele.IdentiteFichier;
 import vueconsole.BoundaryRechercherImage;
 
 public class TestAffichage {
@@ -15,6 +19,12 @@ public class TestAffichage {
 					new BoundaryRechercherImage(controlRechercheImage);
 
 			// Lancement du cas
+			
+			IdentiteFichier ident=IdentiteFichier.getInstance();
+			ident.ajouterIdentifiant();
+			System.out.println(ident.visualiserIdentifiant());
+			String test=ident.getKeyByValue("50.txt");
+			System.out.println(test);
 			boundaryRechercheImage.rechercheImage();
 
 			// Verification de la bonne realisation du cas
