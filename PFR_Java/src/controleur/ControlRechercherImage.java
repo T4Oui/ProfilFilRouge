@@ -40,7 +40,7 @@ public class ControlRechercherImage {
 		 
 		BDHistorique bdHistorique = BDHistorique.getInstance();
 		bdHistorique.ajouterHistorique(recherche,resultat);
-		System.out.println(bdHistorique.visualiserHistorique());
+		//System.out.println(bdHistorique.visualiserHistorique());
 		 
 		 return resultat;
 	}
@@ -60,7 +60,7 @@ public class ControlRechercherImage {
 		
 		BDHistorique bdHistorique = BDHistorique.getInstance();
 		bdHistorique.ajouterHistorique(recherche,resultat);
-		System.out.println(bdHistorique.visualiserHistorique());
+		//System.out.println(bdHistorique.visualiserHistorique());
 		
 		return resultat;
 	}
