@@ -39,6 +39,6 @@ public class Resultat {
 	
 	public String toString ()
 	{
-		return this.recherche.toString()+" ==> Resultat : "+this.listeResultat.toString().substring(1, this.listeResultat.toString().length()-1);
+		return " ==> Resultat : "+this.listeResultat.toString().substring(1, this.listeResultat.toString().length()-1);
 	}
 }

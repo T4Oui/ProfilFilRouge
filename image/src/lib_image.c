@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include </home/pfr/pfr_code/image/include/lib_image.h>
+//#include </home/pfr/pfr_code/image/include/lib_image.h>
+#include "../include/lib_image.h"
 
 int tab_taille_couleur(int config,int noiroublanc)
 {   

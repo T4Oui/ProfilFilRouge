@@ -22,12 +22,13 @@ private Map<String,String> identifiants = new HashMap<>();
 	}
 	
 	public void ajouterIdentifiant() {
-		List<String> res = FileHandler.readFileToList("/Users/valentin/Downloads/base_image/ base_image_couleur.txt");
+		List<String> res = FileHandler.readFileToList("/home/pfr/pfr/image/descripteurs_images/base_image_couleur.txt");
+		System.out.println(res.toString()); 
 		for (String string : res) {
 			String[] parts = string.split(" "); // Splitting the string at the space character
 			this.identifiants.put(parts[0],parts[2]);
 		}
-		res=FileHandler.readFileToList("/Users/valentin/Downloads/base_image/ base_image_NB.txt");
+		res=FileHandler.readFileToList("/home/pfr/pfr/image/descripteurs_images/base_image_NB.txt");
 		for (String string : res) {
 			String[] parts = string.split(" "); // Splitting the string at the space character
 			this.identifiants.put(parts[0],parts[2]);

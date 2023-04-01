@@ -4,14 +4,14 @@
 #include "/home/pfr/pfr_code/texte/include/recherche_mot_clef.h"
 
 void rech_MC(char * mot){
-    system("echo >/home/pfr/pfr_code/data/rech_mot_clef.txt");
+    system("echo > ../../data/rech_mot_clef.txt");
     char carac[200];
     char chaine[210];
     int nbMot;
     int id_courant;
     int id_fich;
     char chemin[200];
-    FILE * table =fopen("/home/pfr/pfr/texte/descripteurs_textes/Table_Index_Texte.txt","r"); 
+    FILE * table =fopen("../../../pfr/texte/descripteurs_textes/Table_Index_Texte.txt","r"); 
     while(fscanf(table,"%s",carac)){
         if(strcmp(carac,mot)==0){
             fscanf(table,"%d",&nbMot);

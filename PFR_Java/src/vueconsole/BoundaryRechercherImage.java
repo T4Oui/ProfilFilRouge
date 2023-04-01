@@ -58,11 +58,11 @@ public class BoundaryRechercherImage {
 				{
 					case 1 :
 						 Resultat fichierAOuvrir=controlRechercherImage.rechercheImageNB(pourcentage, chemin);
-						System.out.println(fichierAOuvrir.getListeResultat());
+						System.out.println(fichierAOuvrir.toString());
 						break;
 					case 2 :
 						fichierAOuvrir=controlRechercherImage.rechercheImageCouleur(pourcentage, chemin);
-						System.out.println(fichierAOuvrir);
+						System.out.println(fichierAOuvrir.toString());
 						break;
 						
 				}

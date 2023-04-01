@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "/home/pfr/pfr_code/son/include/lib_son.h"
+//#include "/home/pfr/pfr_code/son/include/lib_son.h"
+#include "../include/lib_son.h"
 
 HISTOGRAMME fct_histogramme( double pas, double echant, HISTOGRAMME h ) {
 

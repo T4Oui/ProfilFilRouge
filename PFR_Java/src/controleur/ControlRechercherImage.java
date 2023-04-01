@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import modele.BDHistorique;
 import modele.Fichier;
 import modele.FileHandler;
 import modele.IdentiteFichier;
@@ -26,9 +27,21 @@ public class ControlRechercherImage {
 	public Resultat rechercheImageNB(float pourcentageMini, String nom)
 	{
 		//nom=rechercheImageNB(pourcentage,nom) du C
-		 Recherche recherche = new Recherche(nom, pourcentageMini);
-		 List<String> res = FileHandler.readFileToList("/Users/valentin/Desktop/TestPFRJAVARecherche/lireRecherche.txt");
+		Recherche recherche = new Recherche(nom, pourcentageMini);
+		IdentiteFichier identite=IdentiteFichier.getInstance();
+		identite.ajouterIdentifiant();
+		String identifiant=identite.getKeyByValue(nom);
+		LibraryImageMoteur jna=LibraryImageMoteur.INSTANCE;
+		int iden=Integer.parseInt(identifiant);
+		jna.recherchenoiretblanc(iden,pourcentageMini,"?");
+		 
+		 List<String> res = FileHandler.readFileToList("/home/pfr/pfr_code/data/resultat_recherche.txt");
 		 this.resultat= new Resultat(TypeRechercheCouleur.NOIRETBLANC, res, recherche);
+		 
+		BDHistorique bdHistorique = BDHistorique.getInstance();
+		bdHistorique.ajouterHistorique(recherche,resultat);
+		System.out.println(bdHistorique.visualiserHistorique());
+		 
 		 return resultat;
 	}
 	
@@ -37,12 +50,18 @@ public class ControlRechercherImage {
 		this.nom="Couleur"+String.valueOf(pourcentageMini)+nom;
 		Recherche recherche = new Recherche(nom, pourcentageMini);
 		IdentiteFichier identite=IdentiteFichier.getInstance();
+		identite.ajouterIdentifiant();
 		String identifiant=identite.getKeyByValue(nom);
 		LibraryImageMoteur jna=LibraryImageMoteur.INSTANCE;
 		int iden=Integer.parseInt(identifiant);
 	    jna.recherchecouleur(iden,pourcentageMini,"?");
-		List<String> res = FileHandler.readFileToList("/Users/valentin/Desktop/TestPFRJAVARecherche/lireRecherche.txt");
+		List<String> res = FileHandler.readFileToList("/home/pfr/pfr_code/data/resultat_recherche.txt");
 		this.resultat= new Resultat(TypeRechercheCouleur.COULEUR, res, recherche);
+		
+		BDHistorique bdHistorique = BDHistorique.getInstance();
+		bdHistorique.ajouterHistorique(recherche,resultat);
+		System.out.println(bdHistorique.visualiserHistorique());
+		
 		return resultat;
 	}
 	

@@ -3,6 +3,27 @@
 
 #include "descripteur_Txt.h"
 
+/*Pile1*/
+
+typedef struct s_cel1{
+    int fich;
+    int nb;
+    struct s_cel1 * suiv;
+} Cel1;
+
+typedef Cel1 * Table;
+
+/*Pile2*/
+
+typedef struct s_cel2{
+    char mot [50];
+    int nbMot;
+    Table table;
+    struct s_cel2 * motTableSuiv;
+} Cel2;
+
+typedef Cel2 * MotTable;
+
 void indexation_texte(void);
 
 void recupListeFichierTxt();
@@ -46,7 +67,7 @@ MotTable initM();
 MotTable addM(MotTable p, char * MotTable);
 MotTable add(MotTable p, int nb, char * MotTable, int fich);
 void aff(MotTable p);
-MotTable table(MotTable p, int ident, char *fichier)
+MotTable table(MotTable p, int ident, char *fichier);
 
 void recherche_comparaison_texte(char * pathFileRecherchee, int nbFichierTxt);
 void nbOccurCommun(int * tabOccurCommun, DESCRIPT_TXT descriptMotRech, int nbFichierTxt);
