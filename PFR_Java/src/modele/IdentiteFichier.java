@@ -7,7 +7,9 @@ import java.util.Map.Entry;
 
 
 public class IdentiteFichier {
-private Map<String,String> identifiants = new HashMap<>();
+private Map<String,String> identifiantsColor = new HashMap<>();
+private Map<String,String> identifiantsNB = new HashMap<>();
+
 	
 	private IdentiteFichier() {
 		// TODO Auto-generated constructor stub
@@ -26,26 +28,50 @@ private Map<String,String> identifiants = new HashMap<>();
 		System.out.println(res.toString()); 
 		for (String string : res) {
 			String[] parts = string.split(" "); // Splitting the string at the space character
-			this.identifiants.put(parts[0],parts[2]);
+			this.identifiantsColor.put(parts[0],parts[2]);
 		}
 		res=FileHandler.readFileToList("/home/pfr/pfr/image/descripteurs_images/base_image_NB.txt");
 		for (String string : res) {
 			String[] parts = string.split(" "); // Splitting the string at the space character
-			this.identifiants.put(parts[0],parts[2]);
+			this.identifiantsNB.put(parts[0],parts[2]);
 		}
 	}
 		
-	public String visualiserIdentifiant() {
-		return this.identifiants.toString();
+	public String visualiserIdentifiantColor() {
+		return this.identifiantsColor.toString();
 	}
 	
-	public  String getKeyByValue(String value) {
-	    for (Entry<String, String> entry : this.identifiants.entrySet()) {
+	public String visualiserIdentifiantNB() {
+		return this.identifiantsNB.toString();
+	}
+	
+	public  String getKeyByValueColor(String value) {
+	    for (Entry<String, String> entry : this.identifiantsColor.entrySet()) {
 	        if (entry.getValue().equals(value)) {
 	            return entry.getKey();
 	        }
 	    }
 	    return null;
+	}
+	
+	public  String getKeyByValueNB(String value) {
+	    for (Entry<String, String> entry : this.identifiantsNB.entrySet()) {
+	        if (entry.getValue().equals(value)) {
+	            return entry.getKey();
+	        }
+	    }
+	    return null;
+	}
+
+	
+	public Map<String,String> getListeFichierNB()
+	{
+		return this.identifiantsNB;
+	}
+	
+	public Map<String,String> getListeFichierColor()
+	{
+		return this.identifiantsColor;
 	}
 	
 

@@ -73,8 +73,8 @@ public class BoundaryRechercherImage {
 				for(couleur=0;!(couleur==1 || couleur==2 || couleur==3 || couleur==4);) //pour ne pas utiliser de while
 				{
 					System.out.println("1. Bleu");
-					System.out.println("2. Rouge");
-					System.out.println("3. Vert");
+					System.out.println("2. Kaki");
+					System.out.println("3. Cyan");
 					System.out.println("4. Violet");
 					couleur=Clavier.entrerClavierInt();
 					if(!(couleur==1 || couleur==2 || couleur ==3 || couleur ==4 ))
@@ -82,7 +82,6 @@ public class BoundaryRechercherImage {
 						System.out.println("Veuillez entrez 1, 2, 3, 4");
 					}
 				}
-				System.out.println("dff");
 				Resultat fichierAOuvrir=controlRechercherImage.rechercheParCouleur(couleur);
 				System.out.println(fichierAOuvrir.toString());
 				break;
