@@ -836,3 +836,55 @@ void open_fich(){
     fclose(fich);
 }
 
+int comptageNbLigne(char * pathFile){
+
+    int ctpMot=0;
+    char comptageMot[256]={0};
+    //comptage du nombre de mot du fichier passer en paramètre
+    snprintf(comptageMot,sizeof(comptageMot),"wc -l %s > /home/pfr/pfr_code/data/comptage.txt",pathFile);
+    system(comptageMot);
+    
+    //récupération du nombre de mot dans le fichier comptage.txt
+    FILE * comptage = fopen("/home/pfr/pfr_code/data/comptage.txt","r");
+    fscanf(comptage,"%d",&ctpMot);
+    fclose(comptage);
+    return ctpMot;
+}
+
+//Main pour fair l'indexation d'un fichier
+int main(int argc, char * argv[]){
+
+    char CommandeRecupNom[256]={0};
+    char fileName[256]={0};
+    char pathFileSRC[256]={0};
+    int ident;
+
+    DESCRIPT_TXT descript;
+    MotTable pMotTable = initM();
+
+    int ret = snprintf(CommandeRecupNom,sizeof(CommandeRecupNom),"basename %s > /home/pfr/pfr_code/data/recupNomRech.txt",argv[1]);
+    if(ret<0){
+        abort();
+    }
+    else system(CommandeRecupNom);
+
+    FILE * recupNom = fopen("/home/pfr/pfr_code/data/recupNomRech.txt","r");
+    fscanf(recupNom,"%s",fileName);
+    fclose(recupNom);
+
+    nettoyage(fileName,CHEMIN_STOCKAGE_FICH_IDX ,CHEMIN_TRAITEMENT_FICH_IDX);
+    filtrage(fileName,CHEMIN_TRAITEMENT_FICH_IDX);
+    redirCleanTok();
+
+    ret = snprintf(pathFileSRC,sizeof(pathFileSRC),CHEMIN_FICHIER_SOURCE,fileName);
+    if(ret<0){
+        abort();
+    }
+    ident = comptageNbLigne("/home/pfr/texte/descripteurs_textes/Liste_Base_Texte.txt")-1;
+    descript = crea_descript_txt(fileName,ident,CHEMIN_FICHIER_TOK_IDX);
+    concatBaseDescript(descript);
+    ajoutListeBaseTxt(pathFileSRC,ident);
+    pMotTable = table(pMotTable,ident,fileName);
+    aff(pMotTable);
+}
+
