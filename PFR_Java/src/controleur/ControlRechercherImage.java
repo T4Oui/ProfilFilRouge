@@ -8,16 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import modele.Fichier;
-import modele.FileHandler;
-import modele.IdentiteFichier;
-import modele.JPGFileReader;
-import modele.ModeRecherche;
-import modele.Recherche;
-import modele.Resultat;
-import modele.ThreadIndexation;
-import modele.TypeRecherche;
-import modele.TypeRechercheCouleur;
 import modele.*;
 import libraryJNA.*;
 
@@ -32,13 +22,13 @@ public class ControlRechercherImage {
 	
 	public Resultat rechercheImageNB(float pourcentageMini, String nom)
 	{
+		
 		FileWatcher watcher = new FileWatcher("chemin/vers/le/répertoire");
 		String latestFileName = watcher.getLatestFileName();
 		Map<String,String>listeFichierTexte=(listeFichier).getListeFichierNB();
 		if(listeFichierTexte.containsValue(latestFileName)) {
 			//appeler fonction indexation
 		}
-		
 		
 		//System.out.println("Nom du dernier fichier ajouté : " + latestFileName);
 		
